@@ -1,0 +1,36 @@
+header{
+
+    background-color: #333;
+    padding: 20;
+    margin: 0;
+    color: white;
+    display: flex;
+   
+    
+}
+
+#company-name-align{
+    margin-left: 84%;
+    
+
+}
+
+
+.navigation-bar{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #333;
+
+}
+
+.navigation-bar-link{
+    padding:10px 20px 10px 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+
