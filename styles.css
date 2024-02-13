@@ -5,12 +5,15 @@ header{
     margin: 0;
     color: white;
     display: flex;
+
    
     
 }
 
+
 #company-name-align{
-    margin-left: 84%;
+    margin-left:auto;
+    padding-right: 20px;
     
 
 }
