@@ -43,25 +43,25 @@ header{
 
     background: #ddd;
 }
-.footer{
+.footerUse > p{
     padding: 10px;
     margin: 0px;
-    color: #333;
+    background-color: #333;
+    color:white;
+    text-align: center;
 }
 
 .shop-now{
-    color: green;
+    background-color: #4CAF50;
     padding: 10px;
     margin: 20px;
-    border-radius: 50%;
+    border-radius: 10px;
 }
 .customer-reviews{
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-around; */
     padding: 20px;
     margin: 20px;
-
     background: #ddd;
 }
 
