@@ -5,6 +5,7 @@ header{
     margin: 0;
     color: white;
     display: flex;
+    width: auto;
 
    
     
@@ -65,4 +66,40 @@ header{
     background: #ddd;
 }
 
+.products table{
 
+   width:100%;
+    
+}
+
+.products {
+    background-color: #ddd;
+    padding: 20px
+}
+
+.product{
+    align-content: center;
+    text-align: center;
+}
+
+.product img{
+    max-width: 100%;
+
+}
+@media screen and (max-width: 768px){
+    .product img{
+            height: auto;
+
+        
+    }
+   
+    
+}
+
+@media screen and (max-width: 480px){
+    .product{
+        display:block;
+        width:100%;
+        
+    }
+}
