@@ -1,7 +1,7 @@
 header{
 
     background-color: #333;
-    padding: 20;
+    padding: 20px;
     margin: 0;
     color: white;
     display: flex;
@@ -44,7 +44,7 @@ header{
 
     background: #ddd;
 }
-.footerUse > p{
+footer {
     padding: 10px;
     margin: 0px;
     background-color: #333;
@@ -66,26 +66,62 @@ header{
     background: #ddd;
 }
 
+
+
 .products table{
 
-   width:100%;
-    
-}
+    width:100%;
+     
+ }
 
 .products {
+    display: flex;
     background-color: #ddd;
-    padding: 20px
+    padding: 20px;
+    margin: 20px;
 }
 
-.product{
+ .product{
     align-content: center;
     text-align: center;
+    background-color: #f9f9f9 ;
+    padding: 20px;
+    margin: 20px;
+    border-radius:10px;
+
+    
+
+}
+
+.product p{
+    color: #007BFF;
+    font-weight: bold;
 }
 
 .product img{
     max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    margin-bottom:10px;
+
 
 }
+
+.product:hover{
+    background-color: white;
+}
+
+.product button{
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.product button:hover{
+    background-color: #45A049;
+}
+
 @media screen and (max-width: 768px){
     .product img{
             height: auto;
@@ -97,9 +133,58 @@ header{
 }
 
 @media screen and (max-width: 480px){
-    .product{
-        display:block;
-        width:100%;
+    .products tr{
+        display:flex;
+        max-width:100%;
+        flex-direction: column;
         
     }
+}
+
+
+.login-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    background-color: #ddd;  
+    border-radius: 10px; 
+ 
+}
+
+.login-form label{
+    display: block;
+    margin: 10px;
+}
+
+.login-form input{
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    
+}
+
+.login-btn{
+    background-color: #4CAF50;
+    padding:10px;
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 0.5;
+}
+
+.login-btn:hover{
+    background-color: #45A049;
+    opacity:1.0;
+}
+
+
+.login-form p a {
+    color: #007bff;
+    text-decoration: none;
+
+}
+.login-form p a:hover{
+    text-decoration: underline;
 }

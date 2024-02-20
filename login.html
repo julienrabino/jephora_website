@@ -27,27 +27,21 @@
       
     </div>
     <main>
-        <form>
-            <label for ="username">Username:</label>
-            <input type = "text" id = "username" name="username">
-            <br>
-            <label for = "password">Password:</label>
-            <input type ="password" id ="password" name = "password">
-            <br>
-            <input type = "submit" value = "Login">
+       
 
+        <section class="login-form">
+            <form action="#" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
 
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
 
-        </form>
-
-        <div>
-            <a href = "signup.html">Sign up today!</a>
-            
-
-
-
-
-        </div>
+                <button type="submit" class="login-btn">Login</button>
+                <p>Don't have an account? <a href="signup.html" class="signup-link">Sign up here</a>.</p>
+            </form>
+        </section>
+       
 
 
         <footer>
