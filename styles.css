@@ -186,8 +186,11 @@ footer {
 .login-form p a:hover{
     text-decoration: underline;
 }
+
 #contactClass{
-    display: flexbox;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     background-color: #ddd;
     padding: 20px;
     margin: 20px;
@@ -199,8 +202,6 @@ footer {
     margin: 0px;
     border-radius: 10px;
 }
-
-
 #contact-method > a:hover{
     background-color: #007BFF;  
 }
