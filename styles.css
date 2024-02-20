@@ -116,6 +116,8 @@ footer {
     padding: 10px;
     border-radius: 5px;
     margin: 10px;
+    height:40px;
+    width: 100px;
 }
 
 .product button:hover{
@@ -125,8 +127,6 @@ footer {
 @media screen and (max-width: 768px){
     .product img{
             height: auto;
-
-        
     }
    
     
