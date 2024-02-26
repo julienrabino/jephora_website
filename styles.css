@@ -185,7 +185,7 @@ footer {
     text-decoration: underline;
 }
 
-#contactClass{
+.contactClass{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
