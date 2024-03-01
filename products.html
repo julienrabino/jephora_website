@@ -123,5 +123,77 @@
     <footer>
         <p>Copyright: Julien Rabino, John Tumacder</p>
      </footer>
+
+     <script>
+        var shoppingCartSection = document.createElement('div');
+        shoppingCartSection.id = 'shoppingCart';
+        var shoppingCartTitle = document.createElement('h2')
+        shoppingCartTitle.textContent = "Shopping Cart";
+        shoppingCartTitle.style.textAlign = "center";
+        shoppingCartSection.appendChild(shoppingCartTitle);
+        document.querySelector('main').appendChild(shoppingCartSection);
+
+        var addToCart = document.querySelectorAll('.product button');
+
+		addToCart.forEach(button => {
+            var product = button.parentElement;
+            var productName = product.querySelector('h2').textContent;
+            button.onclick = () => {
+                alert(`${productName} has been added to cart!`);
+                
+                var existingProduct = document.querySelector(`#${productName}`);
+                if (existingProduct == null){
+                    var newProduct = document.createElement('p');
+                    newProduct.id = `${productName}`;
+                    var productPrice = product.querySelector('p').textContent;
+                    var productQuantity = document.createElement('span');
+                    productQuantity.textContent = '1';
+                    productQuantity.id = 'productQty';
+
+                    newProduct.textContent = `${productName} - ${productPrice} - `;
+                    newProduct.appendChild(productQuantity)
+                    newProduct.style.textAlign =  "center";
+
+                    var removeButton = document.createElement('button');
+                    removeButton.className = 'remove';
+                    removeButton.textContent = "Remove";
+                    removeButton.style = "background-color: #4CAF50; padding: 10px; border-radius: 5px; margin: 10px; height:40px; width: 100px;";
+                    removeButton.onmouseout = () => {removeButton.style ="background-color: #4CAF50; padding: 10px; border-radius: 5px; margin: 10px; height:40px; width: 100px;";}
+                    removeButton.onmouseover = () =>{removeButton.style = "background-color: #ff0000; padding: 10px; border-radius: 5px; margin: 10px; height:40px; width: 100px;";}
+                    removeButton.onclick = () =>{
+                        var product = removeButton.parentElement;
+                        
+                        var pastQuantity = parseInt(product.querySelector('#productQty').textContent);
+
+                        if (pastQuantity == 1){
+                            product.parentNode.removeChild(product);
+                        }
+                        else{
+                            var newQuantity = pastQuantity-1;
+                            product.querySelector('#productQty').textContent = newQuantity;
+                        }
+
+                }
+            
+                    newProduct.appendChild(removeButton);
+                    shoppingCartSection.appendChild(newProduct);
+
+            }
+                
+                else{
+
+                    var pastQuantity = parseInt(existingProduct.querySelector('#productQty').textContent);
+                    var newQuantity = pastQuantity+1;
+                    existingProduct.querySelector('#productQty').textContent = newQuantity;
+
+
+                }
+            }
+        })
+        
+            
+        
+    
+     </script>
 </body>
 </html>
