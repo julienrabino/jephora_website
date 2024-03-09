@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+
+    <link rel = "stylesheet" type = "text/css" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <img width = "100px" height = "100px" src = "images/coal.png" alt ="Company Logo" >
+        <h2 id = 'company-name-align'>Jephora</h2>
+    </header>
+    <div class = 'navigation-bar'>
+      
+        <a href="index.html" class = "navigation-bar-link">Home</a>
+     
+        <a href = "products.html" class = "navigation-bar-link">Products</a>
+     
+        <a href = "contact.html"class = "navigation-bar-link">Contact</a>
+       
+    </div>
+    <main>
+       
+
+        <section class="login-form">
+            <form action="#" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+                <button type="submit" class="login-btn">Login</button>
+                <p>Don't have an account? <a href="signup.html" class="signup-link">Sign up here</a>.</p>
+            </form>
+        </section>
+       
+
+
+        
+        
+    </main>
+    <footer>
+        <p>Copyright: Julien Rabino, John Tumacder</p>
+    </footer>
+    <script>
+        async function fetchUserData() {
+            try{
+                var result = await fetch(`https://jsonplaceholder.typicode.com/users`);
+                var data = await result.json();
+                return data;
+                
+            }
+
+            catch{
+                alert('API call was unsuccessful.');
+            }
+        }
+
+        function createMessageDiv(){
+            var messageBox = document.createElement('div');
+            messageBox.id = 'messageBox';
+            messageBox.style = "border:2px solid; background-color: #f9f9f9; padding: 10px; margin:2px;";
+            var message = document.createElement('p');
+            message.id = 'message';
+            
+            messageBox.appendChild(message);
+            document.querySelector('main').appendChild(messageBox)
+        }
+        async function validateLogin(event){
+            event.preventDefault();
+            var userData = await fetchUserData();
+            var username = document.querySelector('#username').value;
+            var password = document.querySelector('#password').value;
+            var counter = 0;
+            
+            userData.forEach(user => {
+                if (user.username === username && user.email === password){
+                    counter = 1;
+                    if (document.querySelector('#messageBox') == null){
+                        createMessageDiv();
+                        
+                        document.querySelector('#message').textContent = 'Login successful!';                        
+                    }
+                    else{
+                        document.querySelector('#message').textContent = 'Login successful!';
+                    }
+                    }
+                
+            });
+
+                if (counter == 0){
+                    if (document.querySelector('#messageBox') == null){
+                        createMessageDiv();
+                        document.querySelector('#message').textContent = 'Username or User-email invalid. Try again.';                     
+                    }
+                    else{
+                        document.querySelector('#message').textContent = 'Username or User-email invalid. Try again.';
+                    }
+
+                }
+            
+        }
+
+       
+        var login = document.querySelector('.login-form');
+        login.addEventListener('submit',validateLogin);
+
+    </script>
+
+
+</body>
+</html>
