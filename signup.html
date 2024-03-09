@@ -23,8 +23,7 @@
        
     </div>
     <main>
-       
-
+        <!-- change below -->
         <section class="login-form">
             <form action="#" method="post">
                 <label for="username">Username:</label>
@@ -37,11 +36,7 @@
                 <p>Don't have an account? <a href="signup.html" class="signup-link">Sign up here</a>.</p>
             </form>
         </section>
-       
-
-
-        
-        
+        <!--  -->
     </main>
     <footer>
         <p>Copyright: Julien Rabino, John Tumacder</p>
@@ -52,9 +47,7 @@
                 var result = await fetch(`https://jsonplaceholder.typicode.com/users`);
                 var data = await result.json();
                 return data;
-                
             }
-
             catch{
                 alert('API call was unsuccessful.');
             }
@@ -70,6 +63,7 @@
             messageBox.appendChild(message);
             document.querySelector('main').appendChild(messageBox)
         }
+        
         async function validateLogin(event){
             event.preventDefault();
             var userData = await fetchUserData();
