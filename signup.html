@@ -23,7 +23,7 @@
        
     </div>
     <main>
-        <!-- change below -->
+        <!-- change below 
         <section class="login-form">
             <form action="#" method="post">
                 <label for="username">Username:</label>
@@ -36,7 +36,25 @@
                 <p>Don't have an account? <a href="signup.html" class="signup-link">Sign up here</a>.</p>
             </form>
         </section>
-        <!--  -->
+      -->
+
+        <section>
+            <form action="#" method = "post">
+                <label for="username">Username:</label>
+                <input type="text" id = "username" name = "username" required placeholder="Enter a username">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                
+                <label for="checkPassword">Confirm Password:</label>
+                <input type="password" id="checkPassword" name="checkPassword" required placeholder="Reenter your password">
+
+                <label for="email">email:</label>
+                <input type="text" id="email" name="email" required placeholder="Enter your email">
+                
+                <button type="submit" class = "login-btn"></button>
+            </form>
+        </section>
     </main>
     <footer>
         <p>Copyright: Julien Rabino, John Tumacder</p>
@@ -64,6 +82,10 @@
             document.querySelector('main').appendChild(messageBox)
         }
         
+        async function addNewUser(event){
+            
+        }
+
         async function validateLogin(event){
             event.preventDefault();
             var userData = await fetchUserData();
