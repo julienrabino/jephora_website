@@ -82,7 +82,7 @@
             var counter = 0;
             
             userData.forEach(user => {
-                if (user.username === username && user.email === password){
+                if (user.name=== username && user.email === password){
                     counter = 1;
                     if (document.querySelector('#messageBox') == null){
                         createMessageDiv();
