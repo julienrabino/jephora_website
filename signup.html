@@ -48,10 +48,10 @@
                 
                 <label for="checkPassword">Confirm Password:</label>
                 <input type="password" id="checkPassword" name="checkPassword" required placeholder="Reenter your password">
-<!-- 
+
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" required placeholder="Enter your email">
-                 -->
+                
                 <button type="submit" class = "login-btn">Signup</button>
             </form>
         </section>
@@ -109,19 +109,20 @@
             } else {
                 check = false;
             }
-            if (cont == true){
-                if (document.querySelector('#messageBox') == null){
-                    createMessageDiv(); 
-                    document.querySelector('#message').textContent = check;                        
-                }else{
-                    document.querySelector('#message').textContent = check;
-                }
-            } else {
+            if (check == false){
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
                     document.querySelector('#message').textContent = errorMsgUser;                        
                 }else{
                     document.querySelector('#message').textContent = errorMsgUser;
+                }
+                return;
+            }else{
+                if (document.querySelector('#messageBox') == null){
+                    createMessageDiv(); 
+                    document.querySelector('#message').textContent = "Username good";                        
+                }else{
+                    document.querySelector('#message').textContent = "Username good";
                 }
             }
 
@@ -152,18 +153,13 @@
                     }
                 }else{
                     check = false
+                    errorMsgPass = "not long enough"
                 }
             } else {
                 check = false
+                errorMsgPass = "not equal"
             }
-            if (check == true){
-                if (document.querySelector('#messageBox') == null){
-                    createMessageDiv(); 
-                    document.querySelector('#message').textContent = check;                        
-                }else{
-                    document.querySelector('#message').textContent = check;
-                }
-            } else {
+            if (check == false){
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
                     document.querySelector('#message').textContent = errorMsgPass;                        
@@ -178,7 +174,7 @@
                 check = false;
             }
             
-            if (check == false){
+            if (check == !check){
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
                     document.querySelector('#message').textContent = check;                        
@@ -186,12 +182,6 @@
                     document.querySelector('#message').textContent = check;
                 }
             }
-                if (document.querySelector('#messageBox') == null){
-                    createMessageDiv(); 
-                    document.querySelector('#message').textContent = errorMsgPass;                        
-                }else{
-                    document.querySelector('#message').textContent = errorMsgPass;
-                }
 
             
             
