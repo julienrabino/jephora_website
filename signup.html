@@ -128,8 +128,9 @@
             var password = document.querySelector('#password').value;
             var checkPassword = document.querySelector('#checkPassword').value;
             var errorMsgPass = "Check password"
-
+            
             var specialChar = '!@#$%^&*()-_=+[]{}|;:\'",.<>?/`~'; // change later 
+            // /[!@#$%^&*()-_=+[]{}\|;:'",.<>\?\/`\~]/.test(password.value) new testing
             if (password == checkPassword){
                 if (password.length >= 8){
                     for (var i = 1; i < password.length; i++){
@@ -174,6 +175,7 @@
             var email = document.querySelector('#email').value;
             var errorMsgEmail = "Check the email";
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+            
             {
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
