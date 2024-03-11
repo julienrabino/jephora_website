@@ -156,7 +156,7 @@
             } else {
                 check = false
             }
-            if (cont == true){
+            if (check == true){
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
                     document.querySelector('#message').textContent = check;                        
@@ -174,9 +174,11 @@
 
             var email = document.querySelector('#email').value;
             var errorMsgEmail = "Check the email";
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+                check = false;
+            }
             
-            {
+            if (check == false){
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
                     document.querySelector('#message').textContent = check;                        
