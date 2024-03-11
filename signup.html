@@ -88,7 +88,7 @@
             var username = document.querySelector('#username').value;
             var password = document.querySelector('#password').value;
             var checkPassword = document.querySelector('#checkPassword').value;
-            var email = document.querySelector('#email').value;
+//            var email = document.querySelector('#email').value;
 
             var userValid = /^[-0-9a-zA-Z_]+$/;
             var userCheck = false;
@@ -99,14 +99,27 @@
                 if (username[0].match(/^[a-zA-Z]+$/)){
                     for (var i = 1; i < username.length; i++){
                         var test = username[i];
-                        if(!test.match(userValid)|| cont == true){
+                        if(test.match(userValid)&& cont == true){
+                            check = true;
+                        } else {
                             check = false;
                             cont = false;
                         }
                     }
+                }else{
+                    check = false
                 } 
-            } 
-            if (cont == false){
+            } else {
+                check = false;
+            }
+            if (cont == true){
+                if (document.querySelector('#messageBox') == null){
+                    createMessageDiv(); 
+                    document.querySelector('#message').textContent = check;                        
+                }else{
+                    document.querySelector('#message').textContent = check;
+                }
+            } else {
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
                     document.querySelector('#message').textContent = check;                        
