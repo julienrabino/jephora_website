@@ -87,29 +87,31 @@
             var userData = await fetchUserData();
             var username = document.querySelector('#username').value;
 
-            var userValid = /^[-0-9a-zA-Z_]+$/;
+            var userValidCharacters = /^[-0-9a-zA-Z_]+$/;
             var userCheck = false;
             var cont = true;
             var errorMsgUser = "Check the username";
+            var validUsername = false;
 
             if (username.length < 20 && username.length > 3){
                 if (username[0].match(/^[a-zA-Z]+$/)){
                     for (var i = 1; i < username.length; i++){
-                        var test = username[i];
-                        if(test.match(userValid)&& cont == true){
-                            check = true;
+                        var testing = username[i];
+                        if(testing.match(userValidCharacters)&& cont == true){
+                            userCheck = true;
                         } else {
-                            check = false;
+                            userCheck = false;
                             cont = false;
                         }
                     }
                 }else{
-                    check = false
+                    userCheck = false
                 } 
             } else {
-                check = false;
+                userCheck = false;
+                errorMsgUser = "Not in range"
             }
-            if (check == false){
+            if (userCheck == false){
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
                     document.querySelector('#message').textContent = errorMsgUser;                        
@@ -118,75 +120,85 @@
                 }
                 return;
             }else{
+                validUsername = true;
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
-                    document.querySelector('#message').textContent = "Username good";                        
+                    document.querySelector('#message').textContent = null;                        
                 }else{
-                    document.querySelector('#message').textContent = "Username good";
+                    document.querySelector('#message').textContent = null;
                 }
             }
 
             var password = document.querySelector('#password').value;
             var checkPassword = document.querySelector('#checkPassword').value;
-            var errorMsgPass = "Check password"
-            
-            var specialChar = '!@#$%^&*()-_=+[]{}|;:\'",.<>?/`~'; // change later 
-            // /[!@#$%^&*()-_=+[]{}\|;:'",.<>\?\/`\~]/.test(password.value) new testing
+            var errorMsgPass = "Check password";
+            var validPassword = false;
+            var checkPass = false;
             if (password == checkPassword){
                 if (password.length >= 8){
-                    for (var i = 1; i < password.length; i++){
-                        var test = password[i];
-                        if(test.match(userValid)&& cont == true){
-                            for (var j = 1; j < specialChar.length; i++){
-                                if (test == specialChar[j]){
-                                    check = true;
-                                    cont = true;
-                                    break;
-                                }
-                                check = false
-                                cont = false
-                            }
+                    for (var i = 0; i < password.length; i++){
+                        var testing = password[i];
+                        if(testing.match(userValid)&& cont == true){
+                            checkPass = true;
+                            cont = true; 
+                        } else if (/[!@#$%^&*()-_=+[]{}\|;:'",.<>\?\/`~]/.test(testing) && cont == true){
+                            checkPass = true;
+                            cont = true;
                         } else {
-                            check = false;
+                            checkPass = false;
                             cont = false;
                         }
                     }
                 }else{
-                    check = false
-                    errorMsgPass = "not long enough"
+                    checkPass = false;
+                    errorMsgPass = "Password is too short";
                 }
             } else {
-                check = false
-                errorMsgPass = "not equal"
+                checkPass = false;
+                errorMsgPass = "Passwords do not match " + password + " " + checkPassword;
             }
-            if (check == false){
+            if (checkPass == false){
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
-                    document.querySelector('#message').textContent = errorMsgPass;                        
+                    document.querySelector('#message').textContent = errorMsgPass + "test ";                        
                 }else{
-                    document.querySelector('#message').textContent = errorMsgPass;
+                    if (document.querySelector('#message') == null){
+                        document.querySelector('#message').textContent = errorMsgPass;
+                    }else {
+                        document.querySelector('#message').textContent = document.querySelector('#message').textContent + errorMsgPass;
+                    }
                 }
+            }else{
+                validPassword = true;
             }
 
             var email = document.querySelector('#email').value;
-            var errorMsgEmail = "Check the email";
+            var errorMsgEmail = "Check email";
+            var correctFormartEmail = false;
+            var correctDomainEmail = false;
+            var validEmail = false;
+
+            var testingEmail = email;
+            if (document.querySelector('#messageBox') == null){
+                    createMessageDiv(); 
+                    document.querySelector('#message').textContent = test;
+            }else{
+                document.querySelector('#message').textContent = testingEmail;
+            }
+
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-                check = false;
+                correctFormartEmail = true;
             }
             
-            if (check == !check){
+            
+            if (validUsername && validPassword && validEmail){
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
-                    document.querySelector('#message').textContent = check;                        
+                    document.querySelector('#message').textContent = "User has been created";                        
                 }else{
-                    document.querySelector('#message').textContent = check;
+                    document.querySelector('#message').textContent = "User has been created";
                 }
             }
-
-            
-            
-            
-
         }
         var user = document.querySelector(".login-form");
         user.addEventListener('submit', addNewUser);
