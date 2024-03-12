@@ -23,21 +23,6 @@
        
     </div>
     <main>
-        <!-- change below 
-        <section class="login-form">
-            <form action="#" method="post">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required placeholder="Enter your username">
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required placeholder="Enter your password">
-
-                <button type="submit" class="login-btn">Login</button>
-                <p>Don't have an account? <a href="signup.html" class="signup-link">Sign up here</a>.</p>
-            </form>
-        </section>
-      -->
-
         <section class="login-form">
             <form action="#" method = "post">
                 <label for="username">Username:</label>
@@ -141,7 +126,7 @@
             if (password == checkPassword){
                 matchPassword = true;
             }else{
-                errorMsgPass = "Passwords do not match " + password + " " + checkPassword;
+                errorMsgPass = "Passwords do not match";
             }
             
             if (password.length >= 8){
@@ -170,15 +155,9 @@
                     document.querySelector('#message').textContent = errorMsgPass;                        
                 }else{
                     temp = document.querySelector('#message').textContent
-                    document.querySelector('#message').textContent = matchPassword + ' ' + lengthPassword +' '+ validCharctersPassword;
+                    document.querySelector('#message').textContent = temp + ', ' + errorMsgPass;
                 }
             }else{
-                if (document.querySelector('#messageBox') == null){
-                    createMessageDiv(); 
-                    document.querySelector('#message').textContent = "testing";                        
-                }else{
-                    document.querySelector('#message').textContent = "testing";
-                }
                 validPassword = true;
             }
             var email = document.querySelector('#email').value;
@@ -191,16 +170,30 @@
 
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
                 correctFormartEmail = true;
+            }else{
+                errorMsgEmail = "Invalid email format"
+            }
+            
+            var domainName = email.split("@")[1].split(".")[1];
+            var validDomainNames = ['com', 'ca', 'biz', 'io', 'net', 'org', 'info', 'me']
+            cont = true;
+            for (var i = 0; i < validDomainNames.length; i++){
+                if (domainName == validDomainNames[i] && cont == true){
+                    correctDomainEmail = true;
+                    cont = false
+                }
+            }
+            if (correctDomainEmail == false && errorMsgEmail == "Check email"){
+                errorMsgEmail = "Invalid email domain"
             }
             if (correctDomainEmail && correctFormartEmail){
                 validEmail = true;
             }else{
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
-                    document.querySelector('#message').textContent = "errorMsgEmail";
                 }else{
                     var temp = document.querySelector('#message').textContent;
-                    document.querySelector('#message').textContent = "temp" + " " + "correctFormartEmail";
+                    document.querySelector('#message').textContent = temp + ", " + errorMsgEmail;
                 }
             }
 
@@ -211,13 +204,7 @@
                 }else{
                     document.querySelector('#message').textContent = "User has been created";
                 }
-            } 
-            if (document.querySelector('#messageBox') == null){
-                createMessageDiv(); 
-                document.querySelector('#message').textContent = "test";
-            }else{
-                document.querySelector('#message').textContent = "testingEmail";
-            }                 
+            }         
         }
         var user = document.querySelector(".login-form");
         user.addEventListener('submit', addNewUser);
