@@ -135,18 +135,40 @@
                 errorMsgPass = "Password is too short";
             }
             
+            var upperCase = /^[A-Z]+$/;
+            var upperTrue = false;
+            var lowerCase = /^[a-z]+$/;
+            var lowerTrue = false; 
+            var numbers = /^[-0-9a-zA-Z_]+$/;
+            var numberTrue = false;
+            var specialTrue = false;
+            
+            var cont = true
             for (var i = 0; i < password.length; i++){
                 var testing = password[i];
-                if(testing.match(userValidCharacters) && cont == true){
-                    validCharctersPassword = true;
-                    cont = true; 
-                } else if (/[!@#$%^&*()-_=+[]{}\|;:'",.<>\?\/`~]/.test(testing) && cont == true){
-                    validCharctersPassword = true;
-                    cont = true;
-                } else {
-                    validCharctersPassword = false;
+                if (upperCase.test(testing)){
+                    upperTrue = true;
+                }
+                else if (lowerCase.test(testing)){
+                    lowerTrue = true;
+                }
+                else if (numbers.test(testing)){
+                    numberTrue = true;
+                }
+                else if ('[!@#$%^&*()-_=+[]{}\|;:",.<>\?\/`~]'.includes(testing) || "'".includes(testing)){
+                    specialTrue = true;
+                }else{
                     cont = false;
                 }
+                if (cont == false){
+                    upperTrue = false;
+                    lowerTrue = false;
+                    numberTrue = false;
+                    specialTrue = false;
+                }
+            }
+            if (upperTrue && lowerTrue && numberTrue && specialTrue){
+                validCharctersPassword = true;
             }
 
             if (!(matchPassword == true && lengthPassword == true && validCharctersPassword == true)){
@@ -154,8 +176,12 @@
                     createMessageDiv(); 
                     document.querySelector('#message').textContent = errorMsgPass;                        
                 }else{
-                    temp = document.querySelector('#message').textContent
-                    document.querySelector('#message').textContent = temp + ', ' + errorMsgPass;
+                    if (document.querySelector('#message').textContent != ""){
+                        temp = document.querySelector('#message').textContent;
+                        document.querySelector('#message').textContent = temp + ', '+ errorMsgPass;
+                    }else {
+                        document.querySelector('#message').textContent = errorMsgPass;
+                    }
                 }
             }else{
                 validPassword = true;
@@ -189,9 +215,14 @@
             }else{
                 if (document.querySelector('#messageBox') == null){
                     createMessageDiv(); 
+                    document.querySelector('#message').textContent = errorMsgPass;                        
                 }else{
-                    var temp = document.querySelector('#message').textContent;
-                    document.querySelector('#message').textContent = temp + ", " + errorMsgEmail;
+                    if (document.querySelector('#message').textContent == ""){
+                        document.querySelector('#message').textContent = errorMsgEmail;
+                    }else {
+                        temp = document.querySelector('#message').textContent;
+                        document.querySelector('#message').textContent = temp + ', '+ errorMsgEmail;
+                    }
                 }
             }
 
