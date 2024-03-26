@@ -12,7 +12,7 @@ const Cart = (props) =>{
     
     let totalCartCost = 0;
     props.value.forEach((item, index) => {
-        totalCartCost = totalCartCost + item.price
+        totalCartCost = totalCartCost + item.price*item.quantity;
     }
 
     )
