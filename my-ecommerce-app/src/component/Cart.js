@@ -7,8 +7,12 @@ const Cart = (props) =>{
         <CartItem value = {item}/>
     ));
     
-    const totalCartCost = 0;
-    
+    let totalCartCost = 0;
+    cart.forEach((item, index) => {
+        totalCartCost = totalCartCost + item.price;
+    }
+
+    )
     return(
         <td>
             {displayCart}
