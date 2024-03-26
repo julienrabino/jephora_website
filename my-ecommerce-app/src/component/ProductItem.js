@@ -16,13 +16,9 @@ const ProductItem = (props) =>{
         setHovered(false);
     }   
 
-    function addProduct(){
-        for (const item in cart){
-            if (item.name === name){
-                item = CartItem
-            }
-        };
-    };
+    const addProduct = () => {
+        props.addToCart(props.value); 
+    }
     
     return(
         <div onMouseEnter = {productHovered} onMouseLeave = {productNotHovered}>
