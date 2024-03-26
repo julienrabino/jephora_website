@@ -1,14 +1,17 @@
 import React, {useState} from 'react';
-import cart from "../data/cart";
+// import cart from "../data/cart";
 import CartItem from './CartItem';
 
 const Cart = (props) =>{
-    const displayCart = cart.map((item) => (
+    if (props.value.length === 0){
+        return <p> No items in cart</p>;
+    }
+    const displayCart = props.value.map((item) => (
         <CartItem value = {item}/>
     ));
     
     let totalCartCost = 0;
-    cart.forEach((item, index) => {
+    props.value.forEach((item, index) => {
         totalCartCost = totalCartCost + item.price
     }
 

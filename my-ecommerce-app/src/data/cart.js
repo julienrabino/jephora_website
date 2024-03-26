@@ -12,4 +12,4 @@ let cart = [{
     image: 'images/product10.jpg'
     }];
 
-export default cart
+export default cart;
