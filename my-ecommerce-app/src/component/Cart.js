@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 // import cart from "../data/cart";
 import CartItem from './CartItem';
 
-const Cart = (props) =>{
+const Cart = (props, {removeFromCart}) =>{
     if (props.value.length === 0){
         return <p> No items in cart</p>;
     }
