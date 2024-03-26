@@ -7,7 +7,7 @@ const Cart = (props) =>{
         return <p> No items in cart</p>;
     }
     const displayCart = props.value.map((item) => (
-        <CartItem value = {item}/>
+        <CartItem value = {item} removeFromCart = {props.removeFromCart}/>
     ));
     
     let totalCartCost = 0;
