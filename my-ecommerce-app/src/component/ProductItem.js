@@ -23,9 +23,9 @@ const ProductItem = (props) =>{
     // ),[])
     }
     return(
-        <div>
+        <div onMouseEnter = {productHovered} onMouseLeave = {productNotHovered}>
         <img src = {image} alt = "product" width = "200px" height = "200px"></img>
-        <p  onMouseEnter = {productHovered} onMouseLeave = {productNotHovered}>{name}</p>
+        <p>{name}</p>
         <p>Price: ${price}</p>
         <button onClick={addProductToCart}>Add to Cart</button>
         {hovered ? (<p>{description}</p>): null}
