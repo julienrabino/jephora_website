@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import cart from "../data/cart";
 
 
 const CartItem = (props) =>{
@@ -12,7 +13,7 @@ const CartItem = (props) =>{
         <p>Price: ${price}</p>
         <p>Quantity: {quantity}</p>
         <p>Total Price: ${price*quantity}</p>
-        <button>Remove from Cart</button>
+        <button onClick={removeFromCart(name)}>Remove from Cart</button>
         </div>
     );
 

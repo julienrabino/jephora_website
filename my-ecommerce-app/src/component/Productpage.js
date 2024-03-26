@@ -7,6 +7,7 @@ import CartItem from './CartItem';
 
 
 
+
 const Productpage = () =>{
     const [cart, setCart] = useState([]);
     const addToCart = (product) =>{
