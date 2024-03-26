@@ -6,7 +6,9 @@ const CartItem = (props) =>{
 
     const {name, image, price, quantity} = props.value;
 
-    
+    const removeFromCart = () => {
+        props.removeFromCart(props.value);
+    }
     
     return(
         <div>
@@ -15,7 +17,7 @@ const CartItem = (props) =>{
         <p>Price: ${price.toFixed(2)}</p>
         <p>Quantity: {quantity}</p>
         <p>Total Price: ${price*quantity.toFixed(2)}</p>
-        <button>Remove from Cart</button>
+        <button onClick={removeFromCart }>Remove from Cart</button>
         </div>
     );
 

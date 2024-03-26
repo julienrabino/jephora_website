@@ -27,7 +27,19 @@ const Productpage = () =>{
         setCart(newCart);
     }
     };
-    
+    const removeFromCart = (product) => {
+        cart.forEach((item, index) => {
+            if (item.name === product.name) {
+                const newCart = [...cart];
+                if (item.quantity !== 1){
+                    newCart[index].quantity -=1;
+                    setCart(newCart);
+                } else {
+                    newCart[index.quantity] = 0;
+                }
+            }
+    });
+    };
 
     return(
         <div className="product-page">
@@ -35,7 +47,7 @@ const Productpage = () =>{
             <table>
                 <tr>
                     <td><ProductList addToCart = {addToCart} /></td>
-                    <td style={{verticalAlign:'top', right:100}}><h1>Shopping Cart</h1><Cart value ={cart}/></td>
+                    <td style={{verticalAlign:'top', right:100}}><h1>Shopping Cart</h1><Cart value ={cart} removeFromCart = {removeFromCart}/></td>
                 </tr>
             </table>
             <Footer />
