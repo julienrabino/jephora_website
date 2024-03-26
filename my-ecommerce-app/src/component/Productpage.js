@@ -13,7 +13,7 @@ const Productpage = () =>{
             <table>
                 <tr>
                     <td><ProductList /></td>
-                    <td style={{verticalAlign:'top'}}><Cart/></td>
+                    <td style={{verticalAlign:'top', right:100}}><h1>Shopping Cart</h1><Cart/></td>
                 </tr>
             </table>
             <Footer />

@@ -3,6 +3,7 @@ import ProductItem from "./ProductItem";
 import product from "../data/products";
 
 const ProductList = () => {
+    
     const displayProduct = product.map((item) => (
         <ProductItem value = {item}/>
     ));

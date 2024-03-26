@@ -1,22 +1,21 @@
 import React, {useState} from 'react';
+import cart from "../data/cart";
+import CartItem from './CartItem';
 
 const Cart = (props) =>{
-    const [total, setTotal] = useState(props.name);
-    // const [temp, setTemp] = useState(total[0]);
-    function handleIncrement(){
-        var place = total
-        setTotal(total) 
-    }
-    function checkProduct(){
-        // setTemp(total[2]);
-    }
+    const displayCart = cart.map((item) => (
+        <CartItem value = {item}/>
+    ));
+    
+    const totalCartCost = 0;
+    // for (const item of cart){
+    //     totalCartCost = totalCartCost + item.
+    // }
     return(
-        <div>
-        <p>{total}</p>
-        <button onClick={handleIncrement}>test</button>
-        {/* <p>{temp}</p> */}
-        <button onClick={checkProduct}>check</button>
-        </div>
+        <td>
+            {displayCart}
+            <p>Total in cart: ${totalCartCost} </p>
+        </td>
     )
 }
 
