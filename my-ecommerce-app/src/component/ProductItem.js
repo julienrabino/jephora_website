@@ -25,7 +25,7 @@ const ProductItem = (props) =>{
         <img src = {image} alt = "product" width = "200px" height = "200px"></img>
         <p>{name}</p>
         <p>Price: ${price}</p>
-        <button onClick={addProduct}>Add to Cart</button>
+        <button onClick={addProduct }>Add to Cart</button>
         {hovered ? (<p>{description}</p>): null}
 
     
