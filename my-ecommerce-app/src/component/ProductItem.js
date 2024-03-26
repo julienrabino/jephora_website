@@ -16,15 +16,16 @@ const ProductItem = (props) =>{
     }
     
     function addProductToCart(){
-        return <Cart name = "test"/>;
-    }
-    useEffect((
+    //     return <Cart name = "test"/>;
+    // }
+    // useEffect((
 
-    ),[])
+    // ),[])
+    }
     return(
-        <div onMouseEnter = {productHovered} onMouseLeave = {productNotHovered}>
+        <div>
         <img src = {image} alt = "product" width = "200px" height = "200px"></img>
-        <p>{name}</p>
+        <p  onMouseEnter = {productHovered} onMouseLeave = {productNotHovered}>{name}</p>
         <p>Price: ${price}</p>
         <button onClick={addProductToCart}>Add to Cart</button>
         {hovered ? (<p>{description}</p>): null}

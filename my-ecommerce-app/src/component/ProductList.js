@@ -13,4 +13,4 @@ const ProductList = () => {
         </td>
     )
 }
-export default ProductList
+export default ProductList;
