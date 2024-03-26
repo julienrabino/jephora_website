@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import Cart from './Cart';
-// import {getCart, addProductToCart} from "../data/cart";
 import cart from "../data/cart";
 import CartItem from './CartItem';
 

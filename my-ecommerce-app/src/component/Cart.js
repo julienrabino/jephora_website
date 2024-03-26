@@ -8,9 +8,7 @@ const Cart = (props) =>{
     ));
     
     const totalCartCost = 0;
-    // for (const item of cart){
-    //     totalCartCost = totalCartCost + item.
-    // }
+    
     return(
         <td>
             {displayCart}
